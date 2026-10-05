@@ -278,3 +278,37 @@ dialog.lb .pv{left:14px} dialog.lb .nx{right:14px}
 .rows b{font-weight:600;line-height:1.4}
 .rows span{color:var(--slate);font-size:15px;line-height:1.5}
 @media (max-width:520px){.rows li{grid-template-columns:1fr;gap:2px}}
+
+/* Home services strip */
+.svc-mini{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+@media (max-width:1000px){.svc-mini{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.svc-mini{grid-template-columns:1fr}}
+.svc-mini a{display:flex;flex-direction:column;gap:8px;text-decoration:none;color:var(--charcoal);background:var(--white);border:1px solid var(--rule);border-radius:var(--radius);padding:20px 20px 22px;transition:border-color .15s,transform .15s}
+.svc-mini a:hover{border-color:var(--charcoal);transform:translateY(-2px)}
+.svc-mini a:hover h3{color:var(--orange-ink)}
+.svc-mini h3{font-size:17px}
+.svc-mini p{margin:0;font-size:14.5px;line-height:1.5;color:var(--slate)}
+.svc-mini .where{align-self:flex-start;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#1E5B3A;background:#E3F1E8;border-radius:4px;padding:3px 7px}
+.svc-mini .where.onsite{color:var(--orange-ink);background:var(--orange-soft)}
+.svc-mini a.ask{background:var(--charcoal);border-color:var(--charcoal);color:#fff}
+.svc-mini a.ask p{color:#CBD5E1}
+.svc-mini a.ask:hover h3{color:#fff}
+.svc-mini .go{margin-top:auto;padding-top:6px;font-weight:600;font-size:14.5px;color:var(--orange)}
+
+/* FAQ */
+.faq{max-width:860px;border-top:2px solid var(--charcoal)}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq summary{cursor:pointer;list-style:none;padding:18px 40px 18px 0;font-weight:600;font-size:17px;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:6px;top:14px;font-size:24px;font-weight:400;color:var(--orange-ink)}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{margin:0 0 20px;color:var(--slate)}
+
+/* Related projects on a project page */
+.related{padding-block:clamp(48px,6vw,80px) 0;border-top:1px solid var(--rule);margin-top:clamp(48px,6vw,80px)}
+.related + .pager{margin-top:clamp(36px,4vw,56px)}
+
+/* About portrait */
+.page-head.with-photo{display:flex;justify-content:space-between;align-items:flex-end;gap:28px}
+.portrait{width:clamp(140px,18vw,220px);aspect-ratio:4/5;object-fit:cover;border-radius:var(--radius);border:1px solid var(--rule)}
+@media (max-width:560px){.page-head.with-photo{flex-direction:column-reverse;align-items:flex-start}}
