@@ -13,7 +13,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}*:not(.marquee-track){animation:none!important}}
 body{margin:0;background:var(--bone);color:var(--charcoal);font:16px/1.65 var(--f-body);font-feature-settings:"cv11","ss01";-webkit-font-smoothing:antialiased}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration-color:var(--orange);text-underline-offset:3px}
@@ -312,3 +312,39 @@ dialog.lb .pv{left:14px} dialog.lb .nx{right:14px}
 .page-head.with-photo{display:flex;justify-content:space-between;align-items:flex-end;gap:28px}
 .portrait{width:clamp(140px,18vw,220px);aspect-ratio:4/5;object-fit:cover;border-radius:var(--radius);border:1px solid var(--rule)}
 @media (max-width:560px){.page-head.with-photo{flex-direction:column-reverse;align-items:flex-start}}
+
+/* Resume-style home (2026-10-22) */
+.hero-cv .wrap{grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr)}
+.cv-photo{margin:0;position:relative;border-radius:var(--radius);overflow:hidden;background:var(--shade);box-shadow:0 18px 40px -24px rgba(15,23,42,.45)}
+.cv-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%}
+.cv-photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:16px 18px;background:linear-gradient(transparent,rgba(15,23,42,.78));color:var(--bone);display:flex;justify-content:space-between;align-items:flex-end;gap:12px;font-size:14px}
+.cv-photo figcaption b{font-size:17px;font-weight:600}
+@media (max-width:900px){.hero-cv .wrap{grid-template-columns:1fr}.cv-photo{max-width:380px}}
+.facts-band{background:var(--charcoal);color:var(--bone);padding-block:26px}
+.facts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px 28px}
+.fact b{display:block;font-size:clamp(20px,2vw,26px);font-weight:700;letter-spacing:-.01em;color:#FBBF5A}
+.fact span{font-size:14px;line-height:1.4;color:#E7E1D6}
+@media (max-width:900px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.disc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2vw,22px)}
+@media (max-width:1000px){.disc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.disc{grid-template-columns:1fr}}
+.disc-card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden;text-decoration:none;color:inherit;transition:border-color .15s,transform .15s}
+.disc-card:hover{border-color:var(--orange);transform:translateY(-2px);color:inherit}
+.disc-card .ph{aspect-ratio:4/3;background:var(--shade);overflow:hidden}
+.disc-card .ph img{width:100%;height:100%;object-fit:cover}
+.disc-card .body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.disc-card p{font-size:15px;color:var(--slate);margin:0}
+.disc-card .go{margin-top:auto;font-size:14px;font-weight:600;color:var(--orange-ink)}
+.cv-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,5vw,64px);align-items:start}
+@media (max-width:900px){.cv-grid{grid-template-columns:1fr}}
+.reviews-band{overflow:hidden}
+.marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.marquee-track{display:flex;gap:22px;width:max-content;padding:4px 0 8px;animation:mq 60s linear infinite}
+.marquee:hover .marquee-track,.marquee:focus-within .marquee-track{animation-play-state:paused}
+.quote.mq{width:min(380px,80vw);flex:0 0 auto}
+.quote.mq blockquote{font-size:16px}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 11px))}}
+@media (prefers-reduced-motion:reduce){.marquee-track{animation-duration:110s}}
+.marquee-track{align-items:stretch}
+.quote.mq blockquote{display:-webkit-box;-webkit-line-clamp:5;line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+.quote.mq{gap:14px;padding:22px 24px}
